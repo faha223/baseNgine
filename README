@@ -1,0 +1,3 @@
+there are 2 makefiles in this project directory:
+makefile - the default makefile, this makefile builds the project, by default it builds 64 bit, but you can pass it x86 for a 32 bit binary, or x64 for a 64 bit binary
+pkgfile - this makefile packages the source into the different tar.gz files that you can find on the site. This makes distribution easier

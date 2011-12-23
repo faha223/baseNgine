@@ -1,0 +1,82 @@
+#include "included.h"
+
+#ifndef _USERINPUT_H_
+#define _USERINPUT_H_
+
+class joypad
+{
+	short numAxes;
+	short numButtons;
+	short numHats;
+
+	// TODO: Add a means to store the axes, buttons, and hats of the joypad, maybe a vector, but probably a pointer to an array of variables
+};
+
+#define KBD_SPACE keystate[SDLK_SPACE]
+#define KBD_ENTER keystate[SDLK_RETURN]
+#define KBD_A keystate[SDLK_a]
+#define KBD_B keystate[SDLK_b]
+#define KBD_C keystate[SDLK_c]
+#define KBD_D keystate[SDLK_d]
+#define KBD_E keystate[SDLK_e]
+#define KBD_F keystate[SDLK_f]
+#define KBD_G keystate[SDLK_g]
+#define KBD_H keystate[SDLK_h]
+#define KBD_I keystate[SDLK_i]
+#define KBD_J keystate[SDLK_j]
+#define KBD_K keystate[SDLK_k]
+#define KBD_L keystate[SDLK_l]
+#define KBD_M keystate[SDLK_m]
+#define KBD_N keystate[SDLK_n]
+#define KBD_O keystate[SDLK_o]
+#define KBD_P keystate[SDLK_p]
+#define KBD_Q keystate[SDLK_q]
+#define KBD_R keystate[SDLK_r]
+#define KBD_S keystate[SDLK_s]
+#define KBD_T keystate[SDLK_t]
+#define KBD_U keystate[SDLK_u]
+#define KBD_V keystate[SDLK_v]
+#define KBD_W keystate[SDLK_w]
+#define KBD_X keystate[SDLK_x]
+#define KBD_Y keystate[SDLK_y]
+#define KBD_Z keystate[SDLK_z]
+#define KBD_SPACE keystate[SDLK_SPACE]
+#define KBD_LSHIFT keystate[SDLK_LSHIFT]
+#define KBD_LCTRL keystate[SDLK_LCTRL]
+#define KBD_LALT keystate[SDLK_LALT]
+#define KBD_RALT keystate[SDLK_RALT]
+#define KBD_RCTRL keystate[SDLK_RCTRL]
+#define KBD_RSHIFT keystate[SDLK_RSHIFT]
+#define KBD_UP keystate[SDLK_UP]
+#define KBD_DOWN keystate[SDLK_DOWN]
+#define KBD_LEFT keystate[SDLK_LEFT]
+#define KBD_RIGHT keystate[SDLK_RIGHT]
+#define KBD_1 keystate[SDLK_1]
+#define KBD_2 keystate[SDLK_2]
+#define KBD_3 keystate[SDLK_3]
+#define KBD_4 keystate[SDLK_4]
+#define KBD_5 keystate[SDLK_5]
+#define KBD_6 keystate[SDLK_6]
+#define KBD_7 keystate[SDLK_7]
+#define KBD_8 keystate[SDLK_8]
+#define KBD_9 keystate[SDLK_9]
+#define KBD_0 keystate[SDLK_0]
+#define KBD_F1 keystate[SDLK_F1]
+#define KBD_F2 keystate[SDLK_F2]
+#define KBD_F3 keystate[SDLK_F3]
+#define KBD_F4 keystate[SDLK_F4]
+#define KBD_F5 keystate[SDLK_F5]
+#define KBD_F6 keystate[SDLK_F6]
+#define KBD_F7 keystate[SDLK_F7]
+#define KBD_F8 keystate[SDLK_F8]
+#define KBD_F9 keystate[SDLK_F9]
+#define KBD_F10 keystate[SDLK_F10]
+#define KBD_F11 keystate[SDLK_F11]
+#define KBD_F12 keystate[SDLK_F12]
+#define KBD_PAGEUP keystate[SDLK_PAGEUP]
+#define KBD_PAGEDOWN keystate[SDLK_PAGEDOWN]
+#define KBD_INSERT keystate[SDLK_INSERT]
+#define KBD_DELETE keystate[SDLK_DELETE]
+#define KBD_ESCAPE keystate[SDLK_ESCAPE]
+//#define KBD_PRINTSCREEN keystate[SDLK_PRINTSCREEN]
+#endif

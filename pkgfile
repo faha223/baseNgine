@@ -1,0 +1,42 @@
+pkgtool = tar
+pkgname = baseNgine
+
+libs = libs/libVector32.o libs/libVector64.o libs/libMatrix32.o libs/libMatrix64.o libs/libRenderer32.o libs/libRenderer64.o
+src = src/game.h src/game.cpp src/main.cpp src/model.h src/model.cpp src/texture.h src/texture.cpp src/included.h src/vectorMath.h src/renderer.h src/matrices.h src/quaternion.h src/quaternion.cpp src/userInput.h
+shaders = shaders/bumpMap.vert shaders/bumpMap.frag shaders/normal.vert shaders/normal.frag shaders/pvl.vert shaders/pvl.frag
+
+default : $(pkgname)_x86.tar.gz $(pkgname)_x64.tar.gz $(pkgname)_src.tar.gz
+
+src: $(pkgname)_src.tar.gz
+
+x86: $(pkgname)_x86.tar.gz
+
+x64: $(pkgname)_x64.tar.gz
+
+$(pkgname)_src.tar.gz : $(libs) $(src) $(shaders) makefile
+	make clean
+	echo "#!/bin/bash\n#Author: Fred Hallock\ncp ./bin/base/default.cfg ./\nif test -f ~/.baseNgine/default.cfg; then cp ~/.baseNgine/default.cfg ./; fi;\n./bin/baseNgine32\nif ! test -f ~/.baseNgine; then mkdir ~/.baseNgine; fi\ncp ./default.cfg ~/.baseNgine/default.cfg" > baseNgine
+	chmod +x baseNgine
+	$(pkgtool) -uvf $(pkgname)_src.tar src/* libs/* shaders/* bin/* makefile baseNgine
+	gzip $(pkgname)_src.tar
+
+$(pkgname)_x86.tar.gz : $(libs) $(src) $(shaders) makefile
+	make clean
+	make x86
+	echo "#!/bin/bash\n#Author: Fred Hallock\ncp ./bin/base/default.cfg ./\nif test -f ~/.baseNgine/default.cfg; then cp ~/.baseNgine/default.cfg ./; fi;\n./bin/baseNgine32\nif ! test -f ~/.baseNgine; then mkdir ~/.baseNgine; fi\ncp ./default.cfg ~/.baseNgine/default.cfg" > baseNgine
+	chmod +x baseNgine
+	$(pkgtool) -uvf $(pkgname)_x86.tar bin/* shaders/* baseNgine
+	gzip $(pkgname)_x86.tar
+
+$(pkgname)_x64.tar.gz : $(libs) $(src) $(shaders) makefile
+	make clean
+	make x64
+	echo "#!/bin/bash\n#Author: Fred Hallock\ncp ./bin/base/default.cfg ./\nif test -f ~/.baseNgine/default.cfg; then cp ~/.baseNgine/default.cfg ./; fi;\n./bin/baseNgine32\nif ! test -f ~/.baseNgine; then mkdir ~/.baseNgine; fi\ncp ./default.cfg ~/.baseNgine/default.cfg" > baseNgine
+	chmod +x baseNgine
+	$(pkgtool) -uvf $(pkgname)_x64.tar bin/* shaders/* baseNgine
+	gzip $(pkgname)_x64.tar
+
+clean: 
+	if test ./$(pkgname)_src.tar.gz; then rm ./$(pkgname)_src.tar.gz; fi
+	if test ./$(pkgname)_src.x86.gz; then rm ./$(pkgname)_x86.tar.gz; fi
+	if test ./$(pkgname)_src.x64.gz; then rm ./$(pkgname)_x64.tar.gz; fi

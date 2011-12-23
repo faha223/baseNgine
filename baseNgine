@@ -1,0 +1,7 @@
+#!/bin/bash
+#Author: Fred Hallock
+cp ./bin/base/default.cfg ./
+if test -f ~/.baseNgine/default.cfg; then cp ~/.baseNgine/default.cfg ./; fi;
+./bin/baseNgine32
+if ! test -f ~/.baseNgine; then mkdir ~/.baseNgine; fi
+cp ./default.cfg ~/.baseNgine/default.cfg
